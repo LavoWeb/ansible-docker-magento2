@@ -1,0 +1,10 @@
+FROM google/debian:jessie
+# Varnish
+EXPOSE 80
+# Nginx
+EXPOSE 8080
+EXPOSE 443
+# Mysql
+EXPOSE 3306
+# Redis
+EXPOSE 6379

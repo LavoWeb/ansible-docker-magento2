@@ -1,0 +1,44 @@
+---
+
+- name: Installing and configuring Docker
+  hosts: all
+  sudo: yes
+  roles:
+ #   - { role: docker-debian, tags: ["docker"] }
+    - { role: mydocker-debian, tags: ["docker"] }
+
+- name: Setting up Rancher Server
+  hosts: "rancher"
+  sudo: yes
+  roles:
+    - { role: rancher, tags: ["rancher"] }
+
+- name: Register Rancher Hosts
+  hosts: "nodes"
+  sudo: yes
+  roles:
+    - { role: rancher_reg, tags: ["rancher_reg"] }
+
+- name: Deploy Varnish Container
+  hosts: 'proxy'
+  sudo: yes
+  roles:
+      - { role: docker-varnish, tags: ["proxy_docker"] }
+
+- name: Deploy MySQL Container
+  hosts: 'database'
+  sudo: yes
+  roles:
+      - { role: mysql_docker, tags: ["mysql_docker"] }
+
+- name: Deploy Redis Container
+  hosts: 'cache'
+  sudo: yes
+  roles:
+      - { role: redis, tags: ["cache_docker"] }
+
+#- name: Deploy Wordpress App
+#  hosts: "application"
+#  sudo: yes
+#  roles:
+#    - { role: wordpress_docker, tags: ["wordpress_docker"] }

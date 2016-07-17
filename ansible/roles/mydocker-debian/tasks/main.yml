@@ -1,0 +1,6 @@
+---
+- name: Docker | Install pip
+  easy_install: name=pip state=latest
+
+- name: Docker | Install pip dependencies for docker
+  pip: name=docker-py

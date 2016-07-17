@@ -1,0 +1,20 @@
+[rancher]
+magento2-global_rancher_www1        ansible_ssh_port=22 ansible_ssh_host=127.0.0.1 ansible_ssh_user=dockeruser
+
+[nodes:children]
+application
+database
+proxy
+cache
+
+[application]
+magento2-global_application_www1    ansible_ssh_port=22 ansible_ssh_host=127.0.0.1 ansible_ssh_user=dockeruser
+
+[database]
+magento2-global_database_www1       ansible_ssh_port=22 ansible_ssh_host=127.0.0.1 ansible_ssh_user=dockeruser
+
+[proxy]
+magento2-global_proxy_www1          ansible_ssh_port=22 ansible_ssh_host=127.0.0.1 ansible_ssh_user=dockeruser
+
+[cache]
+magento2-global_cache_www1          ansible_ssh_port=22 ansible_ssh_host=127.0.0.1 ansible_ssh_user=dockeruser

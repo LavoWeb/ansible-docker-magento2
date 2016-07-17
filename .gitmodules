@@ -1,0 +1,9 @@
+[submodule "ansible/roles/docker-debian"]
+	path = ansible/roles/docker-debian
+	url = https://github.com/auraltension/ansible-role-docker-debian.git
+[submodule "ansible/roles/docker-varnish"]
+	path = ansible/roles/docker-varnish
+	url = https://github.com/geerlingguy/ansible-role-varnish.git
+[submodule "ansible/roles/redis"]
+	path = ansible/roles/redis
+	url = https://github.com/Vinelab/ansible-redis-docker.git
