@@ -3,7 +3,6 @@
   docker:
       name: percona
       image: percona:{{ mysql_version }}
-      detach: True
       env: RANCHER_NETWORK=true,
            MYSQL_ROOT_PASSWORD={{ mysql_root_password }}
 

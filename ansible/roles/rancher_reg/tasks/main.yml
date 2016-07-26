@@ -34,7 +34,6 @@
   docker:
       image: rancher/agent:v{{ rancher_agent_version }}
       privileged: yes
-      detach: True
       volumes: /var/run/docker.sock:/var/run/docker.sock
       command: "{{ rancher_token.json['registrationUrl'] }}"
       state: started

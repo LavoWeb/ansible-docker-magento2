@@ -7,17 +7,17 @@
  #   - { role: docker-debian, tags: ["docker"] }
     - { role: mydocker-debian, tags: ["docker"] }
 
-- name: Setting up Rancher Server
-  hosts: "rancher"
-  sudo: yes
-  roles:
-    - { role: rancher, tags: ["rancher"] }
-
-- name: Register Rancher Hosts
-  hosts: "nodes"
-  sudo: yes
-  roles:
-    - { role: rancher_reg, tags: ["rancher_reg"] }
+#- name: Setting up Rancher Server
+#  hosts: "rancher"
+#  sudo: yes
+#  roles:
+#    - { role: rancher, tags: ["rancher"] }
+#
+#- name: Register Rancher Hosts
+#  hosts: "nodes"
+#  sudo: yes
+#  roles:
+#    - { role: rancher_reg, tags: ["rancher_reg"] }
 
 - name: Deploy Varnish Container
   hosts: 'proxy'
@@ -35,7 +35,9 @@
   hosts: 'cache'
   sudo: yes
   roles:
-      - { role: redis, tags: ["cache_docker"] }
+      - { role: redis, tags: ["cache_docker"], ram: 20000000 }
+      # Correct bug with unit translation
+
 
 #- name: Deploy Wordpress App
 #  hosts: "application"

@@ -4,7 +4,6 @@
   docker:
       name: wordpress
       image: wordpress:{{ wordpress_version }}
-      detach: True
       ports:
       - 80:80
       env: RANCHER_NETWORK=true,
